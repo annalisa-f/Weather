@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <meta name="description" content="Interactive weather info for a selection of capital cities" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}" />
+  </head>
+
+  <body>
+    <div id="options">
+
+      <div class="dropdown">
+        <button class="dropbtn">Filter by Continent</button>
+        <div class="dropdown-content">
+          <a href="/">World</a>
+          <a href="/?cont=1">Africa</a>
+          <a href="/?cont=2">Asia</a>
+          <a href="/?cont=3">Carribean Islands</a>
+          <a href="/?cont=4">Central America</a>
+          <a href="/?cont=5">Europe</a>
+          <a href="/?cont=6">Middle East</a>
+          <a href="/?cont=7">North America</a>
+          <a href="/?cont=8">Oceania</a>
+          <a href="/?cont=9">South America</a>
+          <a href="/?cont=10">Southeast Asia</a>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js.js') }}"></script>
+  </body>
+
+</html>
