@@ -5,21 +5,24 @@ WEATHERDB = 'weather.db'
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET'])
+@app.route('/')
 def index():
-    continent = request.args.get('cont')
-    print(continent)
+
     return render_template ('index.html')
 
 
 
-@app.route('/cont', methods = ['GET'])
-def set_continent():
+@app.route('/continent', methods=['POST'])
+def scores_list():
 
-    print(continent)
-    #con = sqlite3.connect(WEATHERDB)
-    #cur = con.execute('SELECT imglink FROM continents WHERE id =?', continent)
-    #imgthingy = cur
-    #con.close()
+    entry = request.json
 
-    return jsonify(continent)
+    con = sqlite3.connect(WEATHERDB)
+    cur = con.execute('SELECT imglink FROM continents WHERE id = ?', [entry])
+
+    imgUrl = cur.fetchone()
+
+    con.close()
+
+
+    return jsonify(imgUrl)
