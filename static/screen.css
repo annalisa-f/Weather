@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-  background-image: url("maps/world.svg");
   background-color: #D0EAF1;
-  background-repeat: no-repeat;
-  background-size: 100%;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -12,6 +9,8 @@ body {
   min-height: 40px;
   padding: 30px 80px;
   font-size: 1.5em;
+  position: absolute;
+  z-index: 10;
 }
 
 .dropbtn {

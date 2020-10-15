@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <div id="options">
 
       <div class="dropdown">
@@ -35,12 +36,17 @@
           <div class="condition" id="rainfall">Rainfall Days</div>
           <div class="condition" id="snow">Snowfall Y/N</div>
           <div class="condition" id="winteravg">Winter Average</div>
-          <div class="condition" id="summeravg"">Summer Average</div>
+          <div class="condition" id="summeravg">Summer Average</div>
         </div>
       </div>
 
     </div>
 
+    <div id="map">
+      <object type="image/svg+xml" data="{{ url_for('static', filename='maps/worldmapfinal.svg') }}">
+      </object>
+    </div>
+    
     <script src="{{ url_for('static', filename='js.js') }}"></script>
   </body>
 
