@@ -22,3 +22,19 @@ document.querySelectorAll('.cont').forEach(item => {
     })
   })
 })
+
+
+window.addEventListener("load", function() {
+  var svgObject = document.getElementById('snowdoc').contentDocument;
+  var svg = svgObject.getElementById('line1');
+  console.log(svg);
+});
+
+
+let snowflake = document.createElement('object');
+snowflake.type = "image/svg+xml"
+snowflake.data = "{{ url_for('static', filename='maps/snowflake.svg') }}"
+
+console.log(snowflake)
+
+document.getElementById('map').appendChild(snowflake);
