@@ -8,7 +8,18 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-    return render_template ('index.html')
+    con = sqlite3.connect(WEATHERDB)
+
+    allXY = []
+    cur = con.execute('SELECT id, x, y FROM weathers')
+
+    for i in cur:
+        allXY.append(i)
+
+    
+    con.close()
+
+    return render_template ('index.html', allXY=allXY)
 
 
 
