@@ -16,24 +16,42 @@ def index():
     for i in cur:
         allXY.append(i)
 
-    
+
     con.close()
 
     return render_template ('index.html', allXY=allXY)
 
 
 
-@app.route('/continent', methods=['POST'])
-def scores_list():
+@app.route('/allinfo', methods=['POST'])
+def allinfo():
 
     entry = request.json
+    cityinfo = []
 
     con = sqlite3.connect(WEATHERDB)
-    cur = con.execute('SELECT imglink FROM continents WHERE id = ?', [entry])
+    cur = con.execute('SELECT city, summeravg, winteravg, rainfall, snow FROM weathers WHERE id = ?', [entry])
 
-    imgUrl = cur.fetchone()
+    cityinfo = cur.fetchone()
+    print(cityinfo)
 
     con.close()
 
 
-    return jsonify(imgUrl)
+    return jsonify(cityinfo)
+
+@app.route('/continent', methods=['POST'])
+def continent():
+
+    entry = request.json
+    gsapinfo = []
+
+    con = sqlite3.connect(WEATHERDB)
+    cur = con.execute('SELECT x, y, scale FROM continents WHERE id = ?', [entry])
+
+    gsapinfo = cur.fetchone()
+
+    con.close()
+
+
+    return jsonify(gsapinfo)
